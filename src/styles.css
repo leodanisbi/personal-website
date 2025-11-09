@@ -1,0 +1,38 @@
+@use "tailwindcss";
+
+@import "tailwindcss";
+
+/* 1. Define tus variables de tema aquí */
+@theme {
+  --color-ios-bg: #000000;
+  --color-ios-card: rgba(255, 255, 255, 0.08);
+  --color-ios-border: rgba(255, 255, 255, 0.15);
+  --color-ios-text-primary: rgba(255, 255, 255, 0.92);
+  --color-ios-text-secondary: rgba(255, 255, 255, 0.55);
+  --color-ios-accent: #007AFF;
+  
+  /* También puedes definir otras propiedades si lo necesitas */
+  --font-family-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* 2. Usa tus variables con la sintaxis de CSS nativa (o con las nuevas funciones de Tailwind) */
+body {
+  background-color: var(--color-ios-bg);
+  color: var(--color-ios-text-primary);
+  font-family: var(--font-family-sans);
+  
+  /* El fondo degradado sigue igual */
+  background-image:
+    radial-gradient(at 40% 20%, hsla(280, 100%, 74%, 0.15) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, hsla(189, 100%, 56%, 0.15) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, hsla(355, 100%, 93%, 0.1) 0px, transparent 50%);
+}
+
+/* 3. Reescribe tus clases de CSS personalizadas */
+.glass-card {
+  /* En v4, es mejor usar la función color-mix para opacidad */
+  background-color: color-mix(in srgb, var(--color-ios-card) 70%, transparent);
+  backdrop-filter: blur(16px); /* Equivalente a backdrop-blur-xl */
+  border: 1px solid color-mix(in srgb, var(--color-ios-border) 50%, transparent);
+  border-radius: 1rem; /* Equivalente a rounded-2xl */
+}

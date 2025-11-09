@@ -1,0 +1,48 @@
+<section class="space-y-8" @fadeIn>
+  <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Sobre Mí</h2>
+
+<div class="glass-card p-6 md:p-8 cursor-pointer transition-all duration-300 hover:scale-[1.02]">
+    <div class="space-y-4 text-ios-text-secondary text-base md:text-lg">
+    <p>
+      Ingeniero Informático ({{ age() }} años) con más de 10 años de experiencia, 
+      especializado en la creación de interfaces de usuario robustas y escalables.
+      Mi base en <span class="font-semibold text-purple-300">Software Libre (Linux)</span> 
+      me proporciona una perspectiva única sobre el desarrollo y la administración de sistemas.
+    </p>
+  </div>
+
+  <div class="mt-6">
+    <button (click)="isModalOpen.set(true)"
+            class="bg-white/20 border border-white/30 rounded-full px-5 py-2 text-sm font-medium
+                   transition-all hover:bg-white/30 hover:scale-105">
+      Leer más sobre mi filosofía
+    </button>
+  </div>
+</div>
+
+
+</section>
+
+<!-- Renderizado condicional del modal -->
+@if (isModalOpen()) {
+  <app-modal title="Mi Filosofía de Desarrollo" (closeModal)="isModalOpen.set(false)">
+    <div class="space-y-4 p-6 text-base text-ios-text-secondary">
+      <p>
+        Mi trayectoria comenzó en la <span class="font-semibold text-white">Universidad de las Ciencias Informáticas (UCI)</span>,
+        donde me gradué en 2014. Mi especialización en la Facultad 1,
+        dedicada al <span class="font-semibold text-white">Software Libre</span>,
+        no solo me formó en el uso avanzado de <span class="font-semibold text-white">Linux</span>,
+        sino que también cimentó mi filosofía de desarrollo basada en la transparencia,
+        la colaboración y la creación de sistemas robustos y mantenibles.
+      </p>
+      <p>
+        Esta base me ha permitido moverme con fluidez entre el frontend y el backend,
+        entendiendo el ciclo de vida completo del software.
+        Creo firmemente en escribir código limpio, en la optimización del rendimiento
+        y en la adopción de nuevas tecnologías que aporten un valor real,
+        como lo hacen <span class="font-semibold text-white">Signals</span> y
+        <span class="font-semibold text-white">SSR</span> en Angular.
+      </p>
+    </div>
+  </app-modal>
+}

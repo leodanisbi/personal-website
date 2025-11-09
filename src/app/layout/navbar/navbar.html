@@ -1,0 +1,30 @@
+<!-- El HTML del menú con su animación -->
+<header class="sticky top-0 z-50 glass-card p-4 md:p-6" @fadeIn>
+  <nav class="flex justify-center space-x-6 md:space-y-8 text-lg">
+    <a 
+      routerLink="/" 
+      routerLinkActive="text-ios-accent font-semibold" 
+      [routerLinkActiveOptions]="{ exact: true }"
+      class="hover:text-ios-accent transition-all duration-300">
+      Inicio
+    </a>
+    <a 
+      routerLink="/about" 
+      routerLinkActive="text-ios-accent font-semibold"
+      class="hover:text-ios-accent transition-all duration-300">
+      Sobre Mí
+    </a>
+    <a 
+      routerLink="/experience" 
+      routerLinkActive="text-ios-accent font-semibold"
+      class="hover:text-ios-accent transition-all duration-300">
+      Experiencia
+    </a>
+    <a 
+      routerLink="/skills" 
+      routerLinkActive="text-ios-accent font-semibold"
+      class="hover:text-ios-accent transition-all duration-300">
+      Habilidades
+    </a>
+  </nav>
+</header>

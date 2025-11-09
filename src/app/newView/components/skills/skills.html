@@ -1,0 +1,72 @@
+<!-- src/app/components/skills/skills.component.html -->
+
+<section class="space-y-12" @fadeIn @staggeredFadeIn>
+  <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Habilidades Técnicas</h2>
+
+  <!-- Frontend Skills -->
+  <div class="glass-card p-8 md:p-12">
+    <h3 class="text-2xl font-semibold mb-6 text-ios-accent text-center">Frontend</h3>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      @for (skill of frontendSkills(); track skill.name) {
+        <div class="flex flex-col items-center space-y-3 p-4 rounded-xl transition-all duration-300 hover:bg-ios-bg/50 hover:scale-105" @fadeIn>
+          @if (skill.svgPath) {
+            <svg class="w-12 h-12 text-ios-text-primary" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <!-- ¡CAMBIO AQUÍ! Usamos [attr.d] en lugar de d="{{...}}" -->
+              <path [attr.d]="skill.svgPath"></path>
+            </svg>
+          } @else {
+            <div class="w-12 h-12 bg-ios-accent/20 rounded-lg flex items-center justify-center">
+              <span class="text-xs text-ios-accent font-bold">{{ skill.name.charAt(0) }}</span>
+            </div>
+          }
+          <span class="text-sm text-center font-medium">{{ skill.name }}</span>
+        </div>
+      }
+    </div>
+  </div>
+
+  <!-- Video Skills -->
+  <div class="glass-card p-8 md:p-12">
+    <h3 class="text-2xl font-semibold mb-6 text-ios-accent text-center">Procesamiento de Video</h3>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      @for (skill of videoSkills(); track skill.name) {
+        <div class="flex flex-col items-center space-y-3 p-4 rounded-xl transition-all duration-300 hover:bg-ios-bg/50 hover:scale-105" @fadeIn>
+          @if (skill.svgPath) {
+            <svg class="w-12 h-12 text-ios-text-primary" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <!-- ¡CAMBIO AQUÍ! -->
+              <path [attr.d]="skill.svgPath"></path>
+            </svg>
+          } @else {
+            <div class="w-12 h-12 bg-ios-accent/20 rounded-lg flex items-center justify-center">
+              <span class="text-xs text-ios-accent font-bold">{{ skill.name.charAt(0) }}</span>
+            </div>
+          }
+          <span class="text-sm text-center font-medium">{{ skill.name }}</span>
+        </div>
+      }
+    </div>
+  </div>
+
+  <!-- DevOps & Backend Skills -->
+  <div class="glass-card p-8 md:p-12">
+    <h3 class="text-2xl font-semibold mb-6 text-ios-accent text-center">DevOps & Backend</h3>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      @for (skill of devopsTools(); track skill.name) {
+        <div class="flex flex-col items-center space-y-3 p-4 rounded-xl transition-all duration-300 hover:bg-ios-bg/50 hover:scale-105" @fadeIn>
+          @if (skill.svgPath) {
+            <svg class="w-12 h-12 text-ios-text-primary" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <!-- ¡CAMBIO AQUÍ! -->
+              <path [attr.d]="skill.svgPath"></path>
+            </svg>
+          } @else {
+            <div class="w-12 h-12 bg-ios-accent/20 rounded-lg flex items-center justify-center">
+              <span class="text-xs text-ios-accent font-bold">{{ skill.name.charAt(0) }}</span>
+            </div>
+          }
+          <span class="text-sm text-center font-medium">{{ skill.name }}</span>
+        </div>
+      }
+    </div>
+  </div>
+
+</section>

@@ -1,0 +1,47 @@
+<!-- src/app/components/experience/experience.component.html -->
+
+<section class="space-y-8" @fadeIn>
+  <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Mi Trayectoria</h2>
+
+  @for (exp of experiences; track exp.id) {
+    <div class="glass-card p-6 md:p-8 cursor-pointer transition-all duration-300 hover:scale-[1.02]"
+         (click)="toggleExperience(exp.id)"
+         @fadeIn>
+      <div class="flex justify-between items-start mb-2">
+        <h3 class="text-2xl font-bold">{{ exp.title }}</h3>
+        <span class="text-ios-text-secondary text-sm md:text-base">{{ exp.period }}</span>
+      </div>
+      <p class="text-ios-accent font-semibold mb-2">{{ exp.company }}</p>
+      <p class="text-ios-text-secondary">{{ exp.summary }}</p>
+
+      @if (activeExperienceId() === exp.id) {
+        @defer {
+          <div class="mt-6 pt-6 border-t border-ios-border space-y-4" @fadeIn>
+            <!-- Sección de Detalles -->
+            <div>
+              <p class="text-ios-text-secondary leading-relaxed">
+                {{ exp.details }}
+              </p>
+            </div>
+
+            <!-- Sección de Etiquetas (Tags) -->
+            <div>
+              <h4 class="font-semibold mb-3">Tecnologías y Habilidades Clave:</h4>
+              <div class="flex flex-wrap gap-2">
+                @for (tag of exp.tags; track tag) {
+                  <span class="px-3 py-1 bg-ios-accent/20 text-ios-accent rounded-full text-sm font-medium">
+                    {{ tag }}
+                  </span>
+                }
+              </div>
+            </div>
+          </div>
+        } @placeholder {
+          <p class="mt-4 text-ios-text-secondary">Cargando detalles...</p>
+        } @loading {
+          <p class="mt-4 text-ios-text-secondary">Cargando...</p>
+        }
+      }
+    </div>
+  }
+</section>
